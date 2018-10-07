@@ -31,6 +31,8 @@ int main(int argc, char**argv) {
 
   res = calc_resistance(count, conn, floatsp);
   printf("Ersättningsresistans: %.1f\n", res);
-    
+
+  free(floatsp);
+  
   return 0;
 }
