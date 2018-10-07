@@ -2,15 +2,15 @@
 
 
 .PHONY: lib
-lib: libresistance/libresistance.so
-	cd libresistance;make
+lib:
+	cd libresistance;make lib
 
 .PHONY: all
 all: electrotest
 
-electrotest: electrotest.c Makefile
+electrotest: electrotest.c Makefile lib
 	gcc -Wall -o electrotest electrotest.c -Ilibresistance/ -Llibresistance/ -lresistance -Wl,-rpath,libresistance/
 
 install:
 	cp electrotest /usr/bin/
-	cp lib/* /usr/lib/
+	cp lib*/*.so /usr/lib/
