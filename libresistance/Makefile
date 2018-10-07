@@ -10,8 +10,8 @@ libresistance.so: Makefile resistance.c resistance.h
 .PHONY : test
 test: resistance
 
-resistance: Makefile resistance.c resistance.h test.c
-	gcc -Wall -o resistance resistance.c test.c
+resistance: Makefile libresistance.so resistance.h test.c
+	gcc -Wall -o resistance test.c -L. -lresistance -Wl,-rpath,.
 
 .PHONY : clean
 clean :
