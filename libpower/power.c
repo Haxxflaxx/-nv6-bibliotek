@@ -1,3 +1,5 @@
+// Daniel Arnqvist, 890410-4877
+
 #include "power.h"
 
 float calc_power_r(float volt, float resistance)

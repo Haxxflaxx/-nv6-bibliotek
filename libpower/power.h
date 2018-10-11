@@ -1,3 +1,5 @@
+// Daniel Arnqvist, 890410-4877
+
 #ifndef POWER_H
 #define POWER_H
 

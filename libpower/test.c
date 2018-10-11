@@ -1,3 +1,5 @@
+// Daniel Arnqvist, 890410-4877
+
 #include "power.h"
 #include <stdio.h>
 
