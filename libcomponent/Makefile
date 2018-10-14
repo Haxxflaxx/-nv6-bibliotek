@@ -1,16 +1,9 @@
-CC = gcc
-CFLAGS = -c -Wall
+.PHONY : lib
+lib: libcomponent.so
 
-all: component
-
-component: libcomponenttest.o libcomponent.o
-	$(CC) -o component libcomponenttest.o libcomponent.o
-
-main.o: libcomponenttest.c
-	$(CC) $(CFLAGS) libcomponenttest.c
-
-libcomponent.o: libcomponent.c libcomponent.h
-	$(CC) $(CFLAGS) libcomponent.c	
+libcomponent.so: Makefile libcomponent.c libcomponent.h
+	gcc -c -fPIC libcomponent.c
+	gcc -shared -fPIC -o libcomponent.so libcomponent.o
 
 clean:
 	rm *o component
