@@ -14,9 +14,13 @@ int e_resistance(float orig_resistance, float *res_array)
 	12000.0,15000.0,18000.0,22000.0,27000.0,33000.0,39000.0,47000.0,56000.0,68000.0,82000.0,
 	100000.0};
 
+	for(int i = 0; i < 3; i++){
+		res_array[i] = 0;
+	}
 	/*Om kvarvarande värde för att beräkna ersättningsresistans är lika med eller större än 10 
 	  (min-värdet i arrayen för ersättningsresistorer) och count är lägre än 3, så sker en ny
 	  beräkning av ersättningsresistor. */
+	
 	while(ersResistans >= 10 && count < 3)
 	{
 		if(res_array != NULL)
