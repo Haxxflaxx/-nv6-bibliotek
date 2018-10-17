@@ -10,14 +10,18 @@
 
 #include "resistance.h"
 #include "libcomponent.h"
+#include "power.h"
 
 int main(int argc, char**argv) {
   float res;
   float *floatsp, *res_array, *item;
   int count;
   char conn;
-  
+  float volt;
 
+
+  printf("Ange spänningskälla i V: ");
+  scanf("%f", &volt);
   printf("Ange koppling[S | P]: ");
   scanf("%c", &conn);
   printf("Antal komponenter: ");
@@ -31,7 +35,9 @@ int main(int argc, char**argv) {
   }
 
   res = calc_resistance(count, conn, floatsp);
+
   printf("Ersättningsresistans: %.1f\n", res);
+  printf("Effekt: %.2f W\n", calc_power_r(volt, res));
 
   free(floatsp);
 
