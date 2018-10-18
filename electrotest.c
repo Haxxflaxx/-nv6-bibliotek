@@ -43,7 +43,7 @@ int main(int argc, char**argv) {
 
   res = calc_resistance(count, conn, floatsp);
 
-  printf("Ersättningsresistans:\n%.1f\n", res);
+  printf("Ersättningsresistans:\n%.1f ohm\n", res);
   printf("Effekt:\n%.2f W\n", calc_power_r(volt, res));
 
   free(floatsp);
