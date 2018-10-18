@@ -47,8 +47,8 @@ int main(int argc, char**argv) {
 
   res = calc_resistance(count, conn, floatsp);
 
-  printf("Ersättningsresistans: %.1f\n", res);
-  printf("Effekt: %.2f W\n", calc_power_r(volt, res));
+  printf("Ersättningsresistans:\n%.1f\n", res);
+  printf("Effekt:\n%.2f W\n", calc_power_r(volt, res));
 
   free(floatsp);
 
