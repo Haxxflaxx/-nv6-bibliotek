@@ -24,24 +24,20 @@ int main(int argc, char**argv) {
   printf("Ange spänningskälla i V: ");
   fgets(line,MAXLINE,stdin);
   sscanf(line, "%f", &volt);
-  printf("Mottagit spänningskälla %.1f V.\n", volt);
   
   printf("Ange koppling[S | P]: ");
   fgets(line,MAXLINE,stdin);
   sscanf(line, "%c", &conn);
-  printf("Mottagit koppling %c.\n", conn);
 
   printf("Antal komponenter: ");
   fgets(line,MAXLINE,stdin);
   sscanf(line, "%d", &count);
-  printf("Mottagit antal komponenter %d.\n", count);
   floatsp = malloc(count * sizeof(float));
   item = floatsp;
   for(int i=0;i<count;i++) {
     printf("Komponent %d i ohm: ",i+1);
     fgets(line,MAXLINE,stdin);
     sscanf(line, "%f", item);
-    printf("Mottagit komponent %.1f ohm.\n", *item);
     item++;
   }
 
