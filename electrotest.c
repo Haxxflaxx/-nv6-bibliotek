@@ -18,19 +18,30 @@ int main(int argc, char**argv) {
   int count;
   char conn;
   float volt;
-
+  const int MAXLINE=100;
+  char line[MAXLINE];
 
   printf("Ange spänningskälla i V: ");
-  scanf("%f", &volt);
+  fgets(line,MAXLINE,stdin);
+  sscanf(line, "%f", &volt);
+  printf("Mottagit spänningskälla %.1f V.\n", volt);
+  
   printf("Ange koppling[S | P]: ");
-  scanf("%c", &conn);
+  fgets(line,MAXLINE,stdin);
+  sscanf(line, "%c", &conn);
+  printf("Mottagit koppling %c.\n", conn);
+
   printf("Antal komponenter: ");
-  scanf("%d", &count);
+  fgets(line,MAXLINE,stdin);
+  sscanf(line, "%d", &count);
+  printf("Mottagit antal komponenter %d.\n", count);
   floatsp = malloc(count * sizeof(float));
   item = floatsp;
   for(int i=0;i<count;i++) {
     printf("Komponent %d i ohm: ",i+1);
-    scanf("%f", item);
+    fgets(line,MAXLINE,stdin);
+    sscanf(line, "%f", item);
+    printf("Mottagit komponent %.1f ohm.\n", *item);
     item++;
   }
 
@@ -45,7 +56,7 @@ int main(int argc, char**argv) {
   int count_res = e_resistance(res, res_array);
   printf("Ersättningsresistanser i E12-serien kopplade i serie:\n");
 
-  for(int i = 0; i < 3; i++)
+  for(int i = 0; i < count_res; i++)
   {
 	  if(res_array[i] != 0)
 		printf("%.0f\n", res_array[i]);
