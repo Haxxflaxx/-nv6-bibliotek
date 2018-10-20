@@ -9,7 +9,7 @@ lib:
 
 .PHONY: all
 all: RPATH_OPT = -Wl,-rpath,libresistance/ -Wl,-rpath,libcomponent/  -Wl,-rpath,libpower/
-all: electrotest
+all: electrotest lib
 
 electrotest: electrotest.c Makefile lib
 	gcc -Wall -o electrotest electrotest.c -Ilibresistance/ -Llibresistance/ -lresistance -Ilibcomponent/ -Llibcomponent/ -lcomponent -Ilibpower/ -Llibpower/ -lpower $(RPATH_OPT)
