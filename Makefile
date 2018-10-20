@@ -8,11 +8,14 @@ lib:
 	cd libpower;make lib
 
 .PHONY: all
+all: RPATH_OPT = -Wl,-rpath,libresistance/ -Wl,-rpath,libcomponent/  -Wl,-rpath,libpower/
 all: electrotest
 
 electrotest: electrotest.c Makefile lib
-	gcc -Wall -o electrotest electrotest.c -Ilibresistance/ -Llibresistance/ -lresistance -Wl,-rpath,libresistance/ -Ilibcomponent/ -Llibcomponent/ -lcomponent -Wl,-rpath,libcomponent/ -Ilibpower/ -Llibpower/ -lpower -Wl,-rpath,libpower/
+	gcc -Wall -o electrotest electrotest.c -Ilibresistance/ -Llibresistance/ -lresistance -Ilibcomponent/ -Llibcomponent/ -lcomponent -Ilibpower/ -Llibpower/ -lpower $(RPATH_OPT)
 
-install:
+.PHONY: install
+install: RPATH_OPT =
+install: electrotest lib
 	cp electrotest /usr/bin/
 	cp lib*/*.so /usr/lib/
